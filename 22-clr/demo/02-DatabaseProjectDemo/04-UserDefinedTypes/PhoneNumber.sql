@@ -3,20 +3,20 @@ GO
 
 -- Что мы хотим от типа PhoneNumber
 -- Номер телефона - 10 цифр
-DECLARE @phone PhoneNumber
-SET @phone = '5105495930'
+DECLARE @phone PhoneNumber;
+SET @phone = '5105495930';
 SELECT 
-	@phone as [Binary], 
-	@phone.ToString() as [ToString], 
-	@phone.ToFormattedString() as [Formatted];
+	@phone AS [Binary], 
+	@phone.ToString() AS [ToString], 
+	@phone.ToFormattedString() AS [Formatted];
 GO
 
 -- NULL
 DECLARE @phone PhoneNumber
 SELECT 
-	@phone as [Binary], 
-	@phone.ToString() as [ToString], 
-	@phone.ToFormattedString() as [Formatted];
+	@phone AS [Binary], 
+	@phone.ToString() AS [ToString], 
+	@phone.ToFormattedString() AS [Formatted];
 GO
 
 -- C# source
@@ -31,9 +31,9 @@ DECLARE @phone PhoneNumber;
 SET @phone = '1111111111';
 SET @phone.Number = '5105495930';
 SELECT 
-	@phone as [Binary], 
-	@phone.ToString() as [ToString], 
-	@phone.ToFormattedString() as [Formatted];
+	@phone AS [Binary], 
+	@phone.ToString() AS [ToString], 
+	@phone.ToFormattedString() AS [Formatted];
 GO
 
 -- Пример использования как типа колонки
@@ -60,8 +60,8 @@ GO
 SELECT 
  e.Name, 
  e.Phone, 
- e.Phone.ToString() as Phone_ToString,
- e.Phone.ToFormattedString() as Phone_FormattedString
+ e.Phone.ToString() AS Phone_ToString,
+ e.Phone.ToFormattedString() AS Phone_FormattedString
 FROM Employees e;
 GO
 
@@ -69,8 +69,8 @@ GO
 SELECT 
  e.Name, 
  e.Phone, 
- e.Phone.ToString() as Phone_ToString,
- e.Phone.ToFormattedString() as Phone_FormattedString
+ e.Phone.ToString() AS Phone_ToString,
+ e.Phone.ToFormattedString() AS Phone_FormattedString
 FROM Employees e
 WHERE e.Phone = '9001234567';
 GO

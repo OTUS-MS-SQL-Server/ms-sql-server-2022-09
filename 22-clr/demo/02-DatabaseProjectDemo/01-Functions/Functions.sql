@@ -8,32 +8,32 @@ SELECT
 
 -- Можно создать сохраняемое вычисляемое поле
 -- для детерменированной функции
-create table Table1
+CREATE TABLE Table1
 (
-	a int,
-	b int,
-	summa as dbo.SumDeterministic(a, b) persisted
+	a INT,
+	b INT,
+	summa AS dbo.SumDeterministic(a, b) PERSISTED
 );
 
 -- Нельзя создать сохраняемое вычисляемое поле
 -- для недетерменированной функции
-create table Table2
+CREATE TABLE Table2
 (
-	a int,
-	b int,
-	summa as dbo.SumNondeterministic(a, b) persisted
+	a INT,
+	b INT,
+	summa AS dbo.SumNondeterministic(a, b) PERSISTED
 );
 
-drop table Table1;
+DROP TABLE Table1;
 
 -- Функция с обращением к данным в БД
-SELECT dbo.CountOrdersForCustomer(832) as [CLR]
-SELECT count(*) as [SQL] FROM Sales.Orders
+SELECT dbo.CountOrdersForCustomer(832) AS [CLR]
+SELECT count(*) AS [SQL] FROM Sales.Orders
 WHERE CustomerID = 832;
 GO
 
-SELECT dbo.CountOrdersForCustomer(105) as [CLR]
-SELECT count(*) as [SQL] FROM Sales.Orders 
+SELECT dbo.CountOrdersForCustomer(105) AS [CLR]
+SELECT count(*) AS [SQL] FROM Sales.Orders 
 WHERE CustomerID = 105;
 GO
 

@@ -4,7 +4,7 @@ GO
 -- Reset
 DROP TABLE IF EXISTS Table2;
 GO
-CREATE TABLE Table2 (Col1 DECIMAL);
+CREATE TABLE Table2 (Col1 INT);
 GO
 
 INSERT INTO Table2
@@ -18,7 +18,7 @@ FROM Table2;
 -- SumClr
 SELECT  
 	SUM(Col1) as [Sum],	
-	dbo.SumClr(Col1) as SumClr
+	dbo.SumClr(Col1) as [SumClr]
 FROM Table2;
 
 -- demo: debug 
