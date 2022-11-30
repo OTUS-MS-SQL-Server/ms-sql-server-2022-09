@@ -2,9 +2,9 @@
 GO
 
 -- Детерменированные и не детерменированные
-select 
+SELECT 
    dbo.SumDeterministic(1, 2), 
-   dbo.SumNondeterministic(3, 4)
+   dbo.SumNondeterministic(3, 4);
 
 -- Можно создать сохраняемое вычисляемое поле
 -- для детерменированной функции
@@ -13,7 +13,7 @@ create table Table1
 	a int,
 	b int,
 	summa as dbo.SumDeterministic(a, b) persisted
-)
+);
 
 -- Нельзя создать сохраняемое вычисляемое поле
 -- для недетерменированной функции
@@ -22,22 +22,22 @@ create table Table2
 	a int,
 	b int,
 	summa as dbo.SumNondeterministic(a, b) persisted
-)
+);
 
-drop table Table1
+drop table Table1;
 
 -- Функция с обращением к данным в БД
 SELECT dbo.CountOrdersForCustomer(832) as [CLR]
 SELECT count(*) as [SQL] FROM Sales.Orders
-WHERE CustomerID = 832
+WHERE CustomerID = 832;
 GO
 
 SELECT dbo.CountOrdersForCustomer(105) as [CLR]
 SELECT count(*) as [SQL] FROM Sales.Orders 
-WHERE CustomerID = 105
+WHERE CustomerID = 105;
 GO
 
 -- Табличная функция
 -- Разбивает строку по разделителям
-select * 
-from dbo.Split('a,ab,abc', ',')
+SELECT * 
+FROM dbo.Split('a,ab,abc', ',');

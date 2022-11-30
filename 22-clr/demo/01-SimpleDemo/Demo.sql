@@ -1,11 +1,11 @@
 ﻿USE WideWorldImporters;
 
 -- Чистим от предыдущих экспериментов
-DROP FUNCTION IF EXISTS dbo.fn_SayHello
+DROP FUNCTION IF EXISTS dbo.fn_SayHello;
 GO
-DROP PROCEDURE IF EXISTS dbo.usp_SayHello
+DROP PROCEDURE IF EXISTS dbo.usp_SayHello;
 GO
-DROP ASSEMBLY IF EXISTS SimpleDemoAssembly
+DROP ASSEMBLY IF EXISTS SimpleDemoAssembly;
 GO
 
 -- Включаем CLR
@@ -22,7 +22,7 @@ GO
 -- 1 (Enabled): заставляет Database Engine игнорировать сведения PERMISSION_SET о сборках 
 -- и всегда интерпретировать их как UNSAFE. По умолчанию, начиная с SQL Server 2017.
 
-reconfigure;
+RECONFIGURE;
 GO
 
 -- Для возможности создания сборок с EXTERNAL_ACCESS или UNSAFE
@@ -57,7 +57,7 @@ GO
 -- [SimpleDemoAssembly].[DemoClass].SayHelloFunction
 
 -- Используем функцию
-SELECT dbo.fn_SayHello('OTUS Student')
+SELECT dbo.fn_SayHello('OTUS Student');
 GO
 
 -- Подключить процедуру из dll - AS EXTERNAL NAME 
@@ -74,7 +74,7 @@ exec dbo.usp_SayHello @Name = 'OTUS Student';
 -- --------------------------
 
 -- Список подключенных CLR-объектов
-SELECT * FROM sys.assembly_modules
+SELECT * FROM sys.assembly_modules;
 
 -- Посмотреть "код" сборки
 -- SSMS: <DB> -> Programmability -> Assemblies -> Script Assembly as -> CREATE To

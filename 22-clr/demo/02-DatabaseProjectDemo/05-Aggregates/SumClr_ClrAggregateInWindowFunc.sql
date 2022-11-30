@@ -1,18 +1,18 @@
 ﻿-- --------------------------------------------------
 -- CLR-агрегат в оконной функции
 -- --------------------------------------------------
-use WideWorldImporters
+USE WideWorldImporters;
 
-DROP TABLE IF EXISTS #AggregateTest
+DROP TABLE IF EXISTS #AggregateTest;
 GO
 
 CREATE TABLE #AggregateTest(
-  [month] int, 
-  [value] int)
+  [month] INT, 
+  [value] INT);
 GO
 
 INSERT INTO #AggregateTest 
-VALUES (1, 1), (1, 0), (1, 2), (2, 3), (2, 2), (3, 2), (4, 3), (5, 1), (5, 3)
+VALUES (1, 1), (1, 0), (1, 2), (2, 3), (2, 2), (3, 2), (4, 3), (5, 1), (5, 3);
 GO
 
 SELECT 
@@ -30,6 +30,6 @@ SELECT
      --,dbo.SumClr(t.[value]) over (order by t.[month])
  -- SumClr с ORDER BY не работает, 
  -- если раскоментировать, то будет ошибка синтаксиса
-FROM #AggregateTest t
+FROM #AggregateTest t;
 GO
 
