@@ -15,7 +15,7 @@ RECONFIGURE;
 GO
 
 EXEC sp_configure 'clr enabled', 1;
-EXEC sp_configure 'clr strict security', 0 
+EXEC sp_configure 'clr strict security', 0;
 GO
 
 -- clr strict security 
@@ -44,12 +44,12 @@ WITH PERMISSION_SET = SAFE;
 -- <DB> -> Programmability -> Assemblies 
 
 -- Посмотреть подключенные сборки (SSMS: <DB> -> Programmability -> Assemblies)
-SELECT * FROM sys.assemblies
+SELECT * FROM sys.assemblies;
 GO
 
 -- Подключить функцию из dll - AS EXTERNAL NAME
-CREATE FUNCTION dbo.fn_SayHello(@Name nvarchar(100))  
-RETURNS nvarchar(100)
+CREATE FUNCTION dbo.fn_SayHello(@Name NVARCHAR(100))  
+RETURNS NVARCHAR(100)
 AS EXTERNAL NAME [SimpleDemoAssembly].[ExampleNamespace.DemoClass].SayHelloFunction;
 GO 
 
@@ -63,13 +63,13 @@ GO
 -- Подключить процедуру из dll - AS EXTERNAL NAME 
 CREATE PROCEDURE dbo.usp_SayHello  
 (  
-    @Name nvarchar(50)
+    @Name NVARCHAR(50)
 )  
 AS EXTERNAL NAME [SimpleDemoAssembly].[ExampleNamespace.DemoClass].SayHelloProcedure;  
 GO 
 
 -- Используем ХП
-exec dbo.usp_SayHello @Name = 'OTUS Student';
+EXEC dbo.usp_SayHello @Name = 'OTUS Student';
 
 -- --------------------------
 

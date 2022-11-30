@@ -1,4 +1,4 @@
-﻿USE WideWorldImporters
+﻿USE WideWorldImporters;
 GO
 
 -- Детерменированные и не детерменированные
@@ -27,12 +27,12 @@ CREATE TABLE Table2
 DROP TABLE Table1;
 
 -- Функция с обращением к данным в БД
-SELECT dbo.CountOrdersForCustomer(832) AS [CLR]
+SELECT dbo.CountOrdersForCustomer(832) AS [CLR];
 SELECT count(*) AS [SQL] FROM Sales.Orders
 WHERE CustomerID = 832;
 GO
 
-SELECT dbo.CountOrdersForCustomer(105) AS [CLR]
+SELECT dbo.CountOrdersForCustomer(105) AS [CLR];
 SELECT count(*) AS [SQL] FROM Sales.Orders 
 WHERE CustomerID = 105;
 GO

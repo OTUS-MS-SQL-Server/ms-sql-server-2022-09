@@ -12,7 +12,7 @@ SELECT
 GO
 
 -- NULL
-DECLARE @phone PhoneNumber
+DECLARE @phone PhoneNumber;
 SELECT 
 	@phone AS [Binary], 
 	@phone.ToString() AS [ToString], 
@@ -22,7 +22,7 @@ GO
 -- C# source
 
 -- Валидация (вызывается Parse())
-DECLARE @phone PhoneNumber
+DECLARE @phone PhoneNumber;
 SET @phone = '123';
 GO
 
@@ -42,7 +42,7 @@ GO
 
 CREATE TABLE Employees
 (
-	Name nvarchar(20),
+	Name NVARCHAR(20),
 	Phone PhoneNumber
 );
 GO
@@ -50,7 +50,7 @@ GO
 INSERT INTO Employees VALUES('empl_1', '9001234567');
 GO
 
-SELECT * FROM Employees e;
+SELECT Name, Phone FROM Employees e;
 GO
 
 -- ошибка (значение не валидное)
