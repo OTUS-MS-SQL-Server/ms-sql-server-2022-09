@@ -32,4 +32,4 @@ jobs:
             16-indexes/demo/*.sql \
             18-transactions/demo/*.sql \
             20-handle_errors/demo/tsql/*.sql \
-            22-clr/demo/**/*.sql
+            22-clr/demo/**/**/*.sql
