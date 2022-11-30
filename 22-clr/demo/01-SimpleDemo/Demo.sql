@@ -1,4 +1,4 @@
-﻿use WideWorldImporters
+﻿USE WideWorldImporters;
 
 -- Чистим от предыдущих экспериментов
 DROP FUNCTION IF EXISTS dbo.fn_SayHello
@@ -9,13 +9,13 @@ DROP ASSEMBLY IF EXISTS SimpleDemoAssembly
 GO
 
 -- Включаем CLR
-exec sp_configure 'show advanced options', 1;
+EXEC sp_configure 'show advanced options', 1;
 GO
-reconfigure;
+RECONFIGURE;
 GO
 
-exec sp_configure 'clr enabled', 1;
-exec sp_configure 'clr strict security', 0 
+EXEC sp_configure 'clr enabled', 1;
+EXEC sp_configure 'clr strict security', 0 
 GO
 
 -- clr strict security 
@@ -45,6 +45,7 @@ WITH PERMISSION_SET = SAFE;
 
 -- Посмотреть подключенные сборки (SSMS: <DB> -> Programmability -> Assemblies)
 SELECT * FROM sys.assemblies
+GO
 
 -- Подключить функцию из dll - AS EXTERNAL NAME
 CREATE FUNCTION dbo.fn_SayHello(@Name nvarchar(100))  
@@ -57,6 +58,7 @@ GO
 
 -- Используем функцию
 SELECT dbo.fn_SayHello('OTUS Student')
+GO
 
 -- Подключить процедуру из dll - AS EXTERNAL NAME 
 CREATE PROCEDURE dbo.usp_SayHello  

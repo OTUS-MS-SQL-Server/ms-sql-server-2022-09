@@ -18,7 +18,7 @@ FROM Application.Cities;
 
 -- алиасы (псевдонимы) колонок
 SELECT 
-    CityID,	
+    CityID,
     CityName AS City,
     CityName City2,
     CityName AS [City Name],
