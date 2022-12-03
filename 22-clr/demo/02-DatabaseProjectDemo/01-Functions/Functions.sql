@@ -39,5 +39,5 @@ GO
 
 -- Табличная функция
 -- Разбивает строку по разделителям
-SELECT * 
+SELECT item, num
 FROM dbo.Split('a,ab,abc', ',');
