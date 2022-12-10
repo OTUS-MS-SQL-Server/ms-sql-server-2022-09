@@ -15,11 +15,11 @@ BEGIN TRAN;
 COMMIT;
 GO
   
--- Проверим, что данные вставились
+-- РџСЂРѕРІРµСЂРёРј, С‡С‚Рѕ РґР°РЅРЅС‹Рµ РІСЃС‚Р°РІРёР»РёСЃСЊ
 SELECT COUNT(*) FROM Sales.OrdersDisk;
 GO
 
--- Через хранимую процедуру
+-- Р§РµСЂРµР· С…СЂР°РЅРёРјСѓСЋ РїСЂРѕС†РµРґСѓСЂСѓ
 CREATE OR ALTER PROCEDURE Sales.OrdersDisk_Insert
     @RowCount INT 
 AS   
@@ -36,18 +36,18 @@ BEGIN
 END;
 GO
 
--- Очищаем таблицу
+-- РћС‡РёС‰Р°РµРј С‚Р°Р±Р»РёС†Сѓ
 DELETE FROM Sales.OrdersDisk
 GO
 
--- Проверяем
+-- РџСЂРѕРІРµСЂСЏРµРј
 SELECT COUNT(*) FROM Sales.OrdersDisk;
 GO
 
--- Запускаем хранимую процедуру
+-- Р—Р°РїСѓСЃРєР°РµРј С…СЂР°РЅРёРјСѓСЋ РїСЂРѕС†РµРґСѓСЂСѓ
 EXEC Sales.OrdersDisk_Insert @RowCount = 50000;
 
--- Проверяем
+-- РџСЂРѕРІРµСЂСЏРµРј
 SELECT COUNT(*) FROM Sales.OrdersDisk_Insert;
 GO
 

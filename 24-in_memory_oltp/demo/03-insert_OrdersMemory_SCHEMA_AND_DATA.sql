@@ -18,11 +18,11 @@ BEGIN TRAN;
 COMMIT;
 GO
  
--- Проверим, что данные вставились
+-- РџСЂРѕРІРµСЂРёРј, С‡С‚Рѕ РґР°РЅРЅС‹Рµ РІСЃС‚Р°РІРёР»РёСЃСЊ
 SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_AND_DATA;
 GO
 
--- Нативная ХП
+-- РќР°С‚РёРІРЅР°СЏ РҐРџ
 CREATE OR ALTER PROCEDURE Sales.OrdersMemory_SCHEMA_AND_DATA_Insert_Native
     @RowCount INT 
 WITH NATIVE_COMPILATION, SCHEMABINDING 
@@ -41,7 +41,7 @@ BEGIN ATOMIC
 END;
 GO
 
--- Обычная ХП
+-- РћР±С‹С‡РЅР°СЏ РҐРџ
 CREATE OR ALTER PROCEDURE Sales.OrdersMemory_SCHEMA_AND_DATA_Insert
     @RowCount INT 
 AS   
@@ -58,37 +58,37 @@ END;
 GO
 
 -- --------------------------
--- Обычная ХП
+-- РћР±С‹С‡РЅР°СЏ РҐРџ
 -- --------------------------
--- Очищаем таблицу
+-- РћС‡РёС‰Р°РµРј С‚Р°Р±Р»РёС†Сѓ
 DELETE FROM Sales.OrdersMemory_SCHEMA_AND_DATA
 GO
 
--- Проверяем
+-- РџСЂРѕРІРµСЂСЏРµРј
 SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_AND_DATA;
 GO
 
--- Запускаем хранимую процедуру
+-- Р—Р°РїСѓСЃРєР°РµРј С…СЂР°РЅРёРјСѓСЋ РїСЂРѕС†РµРґСѓСЂСѓ
 EXEC Sales.OrdersMemory_SCHEMA_AND_DATA_Insert @RowCount = 50000;
 
--- Проверяем
+-- РџСЂРѕРІРµСЂСЏРµРј
 SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_AND_DATA;
 GO
 
 -- --------------------------
--- Нативная ХП
+-- РќР°С‚РёРІРЅР°СЏ РҐРџ
 -- --------------------------
--- Очищаем таблицу
+-- РћС‡РёС‰Р°РµРј С‚Р°Р±Р»РёС†Сѓ
 DELETE FROM Sales.OrdersMemory_SCHEMA_AND_DATA
 GO
 
--- Проверяем
+-- РџСЂРѕРІРµСЂСЏРµРј
 SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_AND_DATA;
 GO
 
--- Запускаем хранимую процедуру
+-- Р—Р°РїСѓСЃРєР°РµРј С…СЂР°РЅРёРјСѓСЋ РїСЂРѕС†РµРґСѓСЂСѓ
 EXEC Sales.OrdersMemory_SCHEMA_AND_DATA_Insert_Native @RowCount = 50000;
 
--- Проверяем
+-- РџСЂРѕРІРµСЂСЏРµРј
 SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_AND_DATA;
 GO
