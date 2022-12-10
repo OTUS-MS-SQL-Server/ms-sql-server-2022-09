@@ -42,18 +42,6 @@ CREATE TABLE Sales.OrdersMemory_SCHEMA_AND_DATA
 WITH (MEMORY_OPTIMIZED=ON, DURABILITY = SCHEMA_AND_DATA);
 GO
 
----- Таблица в памяти SCHEMA_AND_DATA HASH
---CREATE TABLE Sales.OrdersMemory_SCHEMA_AND_DATA_HASH
---(
---  OrderLineID INT NOT NULL
---	PRIMARY KEY NONCLUSTERED HASH WITH (BUCKET_COUNT=1000),
---  OrderID INT NOT NULL,
---  StockItemID INT NOT NULL,
---  Quantity INT NOT NULL
---)
---WITH (MEMORY_OPTIMIZED=ON, DURABILITY = SCHEMA_AND_DATA);
---GO
-
 -- Таблица в памяти SCHEMA_ONLY
 CREATE TABLE Sales.OrdersMemory_SCHEMA_ONLY
 (
@@ -77,3 +65,4 @@ FROM sys.tables
 ORDER BY is_memory_optimized DESC;
 
 -- Вставим данные и сравним производительность
+-- (в других файлах)

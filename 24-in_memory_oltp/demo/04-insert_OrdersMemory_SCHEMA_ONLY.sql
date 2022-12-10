@@ -23,7 +23,7 @@ SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_ONLY;
 GO
 
 -- Нативная ХП
-CREATE OR ALTER PROCEDURE Sales.OrdersMemory_SCHEMA_ONLY_Insert
+CREATE OR ALTER PROCEDURE Sales.OrdersMemory_SCHEMA_ONLY_Insert_Native
     @RowCount INT 
 WITH NATIVE_COMPILATION, SCHEMABINDING 
 AS   
@@ -50,7 +50,7 @@ SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_ONLY;
 GO
 
 -- Запускаем хранимую процедуру
-EXEC Sales.OrdersMemory_SCHEMA_ONLY_Insert @RowCount = 50000;
+EXEC Sales.OrdersMemory_SCHEMA_ONLY_Insert_Native @RowCount = 50000;
 
 -- Проверяем
 SELECT COUNT(*) FROM Sales.OrdersMemory_SCHEMA_ONLY;
