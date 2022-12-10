@@ -29,5 +29,8 @@
     "upper-lower": "error",
     "unicode-string": "error"
   },
-  "compatability-level": 140
+  "compatability-level": 140,
+  "plugins": {
+    "sample-plugin":".github/tsqllint/tsqllint-plugins.dll"
+  }
 }
