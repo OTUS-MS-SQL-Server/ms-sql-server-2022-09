@@ -3,6 +3,7 @@
 
 -- 00 - SqlQueryStress.sql
 -- Запросы для запуска через SqlQueryStress
+-- https://github.com/ErikEJ/SqlQueryStress
 
 /*1*/ SELECT OrderID, OrderDate, PickingCompletedWhen, DATEDIFF(mm, OrderDate, PickingCompletedWhen)
 FROM Sales.Orders
