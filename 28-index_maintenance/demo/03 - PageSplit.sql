@@ -81,6 +81,7 @@ SELECT * FROM fn_dblog(NULL, NULL);
 
 -- Смотрим операции Page Split
 SELECT
+    operation,
 	AllocUnitName,
 	[Context],
 	(CASE [Context]
@@ -93,11 +94,9 @@ SELECT
 	[Page ID],
 	[Slot ID],
 	[New Split Page]
-FROM
-fn_dblog(NULL, NULL)
-WHERE
-operation = 'LOP_DELETE_SPLIT'
-AND AllocUnitName NOT LIKE 'sys.%';
+FROM fn_dblog(NULL, NULL)
+WHERE Operation = 'LOP_DELETE_SPLIT' AND 
+      AllocUnitName NOT LIKE 'sys.%';
 
 -- Общее количество Page Split в разрезе таблиц/индексов
 SELECT
@@ -108,11 +107,9 @@ SELECT
         ELSE N'Non-Leaf'
     END) AS [SplitType],
     COUNT (1) AS [SplitCount]
-FROM
-    fn_dblog (NULL, NULL)
-WHERE
-    [Operation] = N'LOP_DELETE_SPLIT'
-	AND AllocUnitName NOT LIKE 'sys.%'
+FROM fn_dblog (NULL, NULL)
+WHERE Operation = N'LOP_DELETE_SPLIT' AND 
+      AllocUnitName NOT LIKE 'sys.%'
 GROUP BY [AllocUnitName], [Context]
 ORDER BY [AllocUnitName];
 

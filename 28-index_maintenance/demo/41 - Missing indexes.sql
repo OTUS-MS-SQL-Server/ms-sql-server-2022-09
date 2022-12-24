@@ -2,10 +2,10 @@
 
 USE WideWorldImporters;
 
- -- запрос с missing indexes
+ -- Запрос с missing indexes
 SELECT AP.EmailAddress, SI.InvoiceDate
 FROM [Sales].[Invoices] SI
-  INNER JOIN [Application].[People] AP ON SI.LastEditedBy = AP.PersonID
+INNER JOIN [Application].[People] AP ON SI.LastEditedBy = AP.PersonID
 WHERE AP.EmailAddress = 'kaylaw@wideworldimporters.com';
 GO
 

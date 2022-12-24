@@ -1,9 +1,7 @@
 /* tsqllint-disable error select-star */
 /* tsqllint-disable error non-sargable */
 
--- 00 - SqlQueryStress.sql
--- Запросы для запуска через SqlQueryStress
--- https://github.com/ErikEJ/SqlQueryStress
+USE WideWorldImporters;
 
 /*1*/ SELECT OrderID, OrderDate, PickingCompletedWhen, DATEDIFF(mm, OrderDate, PickingCompletedWhen)
 FROM Sales.Orders
@@ -56,4 +54,4 @@ FROM Sales.customers cus
      JOIN Application.Cities cit            
     ON cit.CityName = cus.PostalAddressLine2;
 
-GO;
+GO 1000
