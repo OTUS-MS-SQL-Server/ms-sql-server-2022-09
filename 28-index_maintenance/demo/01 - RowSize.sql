@@ -1,5 +1,8 @@
 -- https://www.microsoftpressstore.com/articles/article.aspx?p=2225060
 
+DROP TABLE IF EXISTS #bigrows_fixed;
+DROP TABLE IF EXISTS #bigrows;
+
 -- Можно ли создать такую таблицу?
 CREATE TABLE #bigrows_fixed
 (
